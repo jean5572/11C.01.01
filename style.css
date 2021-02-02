@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+
+  max-width: inherit;
+  margin: 0 auto;
+}
+
+.popup_article {
+  width: 80vw;
+  height: 60vh;
+  margin: 4rem auto;
+  background-color: beige;
+
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 30vw;
+
+  padding: 30px;
+}
+
+#luk {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  height: 22px;
+  width: 40px;
+  color: white;
+  border-radius: 5px;
+  padding: 1em;
+  font-family: "Roboto", serif;
+  cursor: pointer;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 8px;
+  max-width: 1000px;
+  margin: 0 auto;
+  cursor: pointer;
+}
