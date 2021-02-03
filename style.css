@@ -30,7 +30,7 @@ button:hover {
   font-weight: bold;
 }
 
-.valgt {
+.choosen {
   font-weight: bold;
 }
 
@@ -60,16 +60,17 @@ button:hover {
   padding: 30px;
 }
 
-#luk {
+#close {
   position: fixed;
-  top: 10px;
-  right: 10px;
+  top: 3em;
+  right: 9em;
   height: 22px;
   width: 40px;
-  color: white;
-  border-radius: 5px;
+  color: black;
   padding: 1em;
-  font-family: "Roboto", serif;
+  font-size: 1em;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
   cursor: pointer;
 }
 

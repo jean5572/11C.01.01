@@ -3,7 +3,7 @@ let filter = "alle";
 let actors;
 let container = document.querySelector("#container");
 let temp = document.querySelector("template");
-const popop = document.querySelector("#popop");
+const popup = document.querySelector("#popup");
 
 //Load Site + function
 document.addEventListener("DOMContentLoaded", getData);
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", getData);
 async function getData() {
     const respons = await fetch("actors.json");
     actors = await respons.json();
-    // addEventListenersToButtons();
+    addEventListenersToButtons();
     show(actors);
 }
 
@@ -20,7 +20,10 @@ function show(actors) {
     container.innerHTML = "";
     //forEach Loop
     actors.forEach(actor => {
-        if (filter == "alle" || filter == actor.movie) {
+        let fixedMovieName = actor.movie.toLowerCase().replace(" ", "_");
+        console.log(fixedMovieName);
+
+        if (filter == "alle" || filter == fixedMovieName) {
             console.log(actor);
             const klon = temp.cloneNode(true).content;
             klon.querySelector(".actor").textContent = actor.fullname;
@@ -42,6 +45,13 @@ function showDetails(actor) {
     popup.querySelector(".movie_name").textContent = actor.movie;
 }
 
+function addEventListenersToButtons() {
+    document.querySelectorAll(".filter").forEach((btn) => {
+        btn.addEventListener("click", filterBTNs);
+    });
+}
+
+
 //tilføj kategori til knap
 function filterBTNs() {
     filter = this.dataset.item;
@@ -50,7 +60,8 @@ function filterBTNs() {
     });
 
     this.classList.add("valgt");
-    vis(actors);
+    show(actors);
 }
 
-document.querySelector("#luk").addEventListener("click", () => popup.style.display = "none");
+
+document.querySelector("#close").addEventListener("click", () => popup.style.display = "none");
