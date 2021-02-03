@@ -21,8 +21,17 @@ button {
   font-size: 1em;
   font-family: "Courier New", Courier, monospace;
   color: black;
-  background-color: whitesmoke;
+  background-color: #fff6ea;
   border-radius: 0.3em;
+}
+
+button:hover {
+  color: #f28d35;
+  font-weight: bold;
+}
+
+.valgt {
+  font-weight: bold;
 }
 
 #popup {
@@ -71,4 +80,13 @@ button {
   max-width: 1000px;
   margin: 0 auto;
   cursor: pointer;
+}
+
+#grid-article {
+  border: 2px solid black;
+  padding: 5px;
+}
+
+#grid-article:hover {
+  border: 2px solid #f28d35;
 }
