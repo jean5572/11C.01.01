@@ -3,6 +3,28 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Courier New", Courier, monospace;
+  color: black;
+  background-color: #f2ebdf;
+}
+
+header {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+button {
+  padding: 5px 10px 5px 10px;
+  font-size: 1em;
+  font-family: "Courier New", Courier, monospace;
+  color: black;
+  background-color: whitesmoke;
+  border-radius: 0.3em;
+}
+
 #popup {
   position: fixed;
   left: 0;
@@ -45,7 +67,7 @@
 #container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 8px;
+  grid-gap: 25px;
   max-width: 1000px;
   margin: 0 auto;
   cursor: pointer;

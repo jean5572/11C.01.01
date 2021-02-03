@@ -1,6 +1,6 @@
 //FILTER
 let filter = "alle";
-let actor;
+let actors;
 let container = document.querySelector("#container");
 let temp = document.querySelector("template");
 const popop = document.querySelector("#popop");
@@ -11,17 +11,15 @@ const id = urlParams.get("id");
 
 //Load Site + function
 document.addEventListener("DOMContentLoaded", hentData);
-console.log("DOMLOADED")
-
 
 async function hentData() {
     const respons = await fetch("actors.json");
     actors = await respons.json();
     // addEventListenersToButtons();
-    vis(actors);
+    show(actors);
 }
 
-function vis(actors) {
+function show(actors) {
     //Løber igennem array "actor" fra JSON
     container.innerHTML = "";
     //forEach Loop
@@ -32,34 +30,21 @@ function vis(actors) {
             klon.querySelector(".actor").textContent = actor.fullname;
             klon.querySelector(".movie").textContent = actor.movie;
 
-            //EventListener "click" + visDetaljer
-            klon.querySelector("article").addEventListener("click", () => visDetaljer(actor));
+            //EventListener "click" + showDetails
+            klon.querySelector("article").addEventListener("click", () => showDetails(actor));
 
             container.appendChild(klon);
 
         }
-    })
-    //Alle actors ID
-    // actors.forEach(actor => {
-    //     if (id == actor.id) {
-    //         visDetaljer(actor)
-    //     }
-    // })
+    });
 }
 
 //Location.href til Singlview
-function visDetaljer(actor) {
+function showDetails(actor) {
     popup.style.display = "block";
     popup.querySelector(".actor_name").textContent = actor.fullname;
     popup.querySelector(".movie_name").textContent = actor.movie;
 }
-
-//Kommer fra hentData
-// function addEventListenersToButtons() {
-//     document.querySelectorAll(".filter").forEach((btn) => {
-//         btn.addEventListener("click", filterBTNs);
-//     });
-// }
 
 //tilføj kategori til knap
 // function filterBTNs() {
